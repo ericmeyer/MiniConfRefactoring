@@ -11,6 +11,10 @@ module TicTacToe
       end
     end
 
+    def rows
+      [row(0), row(1)]
+    end
+
     private
 
     attr_accessor :board_as_array
@@ -20,9 +24,7 @@ module TicTacToe
 
     def has_winner?(board_as_array)
       board = Board.new(board_as_array)
-      row_one = board.row(0)
-      row_two = board.row(1)
-      [row_one, row_two].any? do |row|
+      board.rows.any? do |row|
         filled_with_the_same?(row)
       end
     end
