@@ -24,6 +24,10 @@ module TicTacToe
 
     def has_winner?(board_as_array)
       board = Board.new(board_as_array)
+      has_winner_on_board?(board)
+    end
+
+    def has_winner_on_board?(board)
       board.rows.any? do |row|
         filled_with_the_same?(row)
       end
