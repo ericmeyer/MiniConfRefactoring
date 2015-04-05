@@ -5,10 +5,9 @@ module TicTacToe
     end
 
     def row(number)
-      if number == 1
-        [0, 1, 2].map {|position| board_as_array[position] }
-      else
-        [3, 4, 5].map {|position| board_as_array[position] }
+      starting_position = number * 3
+      [starting_position, starting_position + 1, starting_position + 2].map do |position|
+        board_as_array[position]
       end
     end
 
