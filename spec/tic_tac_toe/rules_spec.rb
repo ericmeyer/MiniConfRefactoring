@@ -19,7 +19,7 @@ describe TicTacToe::Rules do
                                     nil, nil, nil])
     end
 
-    it "does not have a winner in the row when the marks are different" do
+    it "does not have a winner in the first row when the marks are different" do
       expect(@rules).to_not have_winner(["X", "O", "X",
                                         nil, nil, nil,
                                         nil, nil, nil])
@@ -29,6 +29,18 @@ describe TicTacToe::Rules do
       expect(@rules).to_not have_winner(["X", nil, nil,
                                         nil, nil, nil,
                                         nil, nil, nil])
+    end
+
+    it "has a winner in the second row" do
+      expect(@rules).to have_winner([nil, nil, nil,
+                                     "X", "X", "X",
+                                     nil, nil, nil])
+    end
+
+    it "does not have a winner in the second row when the marks are different" do
+      expect(@rules).to_not have_winner([nil, nil, nil,
+                                         "X", "O", "O",
+                                         nil, nil, nil])
     end
   end
 
