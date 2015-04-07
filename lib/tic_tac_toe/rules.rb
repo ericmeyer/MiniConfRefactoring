@@ -40,15 +40,19 @@ module TicTacToe
   class Rules
 
     def has_winner?(board)
-      board.rows.any? do |row|
-        filled_with_the_same?(row)
+      candidate_combinations(board).any? do |marks|
+        filled_with_the_same?(marks)
       end
+    end
+
+    def candidate_combinations(board)
+      board.rows + board.columns
     end
 
     private
 
-    def filled_with_the_same?(row)
-      row.none?(&:nil?) && row.uniq.size == 1
+    def filled_with_the_same?(marks)
+      marks.none?(&:nil?) && marks.uniq.size == 1
     end
 
   end

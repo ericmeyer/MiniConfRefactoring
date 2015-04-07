@@ -50,6 +50,12 @@ describe TicTacToe::Rules do
                                                "X", "O", "O",
                                                nil, nil, nil]))
     end
+
+    it "has a winner in the first row" do
+      expect(@rules).to have_winner(board(["O", nil, nil,
+                                           "O", "O", nil,
+                                           "O", nil, nil]))
+    end
   end
 
 end
