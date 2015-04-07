@@ -20,20 +20,18 @@ module TicTacToe
 
     def row(number)
       starting_position = number * 3 + 1
-      [starting_position, starting_position + 1, starting_position + 2].map do |position|
-        mark(position)
-      end
+      collect(starting_position, starting_position + 1, starting_position + 2)
     end
 
     def column(number)
       starting_position = number + 1
-      [starting_position, starting_position + 3, starting_position + 6].map do |position|
-        mark(position)
-      end
+      collect(starting_position, starting_position + 3, starting_position + 6)
     end
 
-    def mark(position)
-      marks[position - 1]
+    def collect(*positions)
+      positions.map do |position|
+        marks[position - 1]
+      end
     end
 
     attr_accessor :marks
