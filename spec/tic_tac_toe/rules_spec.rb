@@ -8,7 +8,11 @@ describe TicTacToe::Rules do
     end
 
     def board(board_as_array)
-      TicTacToe::Board.new(board_as_array)
+      board = TicTacToe::Board.new
+      board_as_array.each.with_index do |mark, index|
+        board.set(index + 1, mark) if mark
+      end
+      board
     end
 
     it "has no winner for an empty board" do

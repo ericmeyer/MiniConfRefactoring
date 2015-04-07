@@ -1,23 +1,35 @@
 module TicTacToe
   class Board
-    def initialize(board_as_array)
-      self.board_as_array = board_as_array
+    def initialize
+      self.marks = {}
     end
 
     def rows
-      [row(0), row(1)]
+      [row(0), row(1), row(2)]
+    end
+
+    def columns
+      [
+        [marks[0], marks[3], marks[6]],
+        2,
+        3
+      ]
+    end
+
+    def set(position, mark)
+      marks[position - 1] = mark
     end
 
     private
 
     def row(number)
-      starting_position = number * 3
+      starting_position = number * 3 + 1
       [starting_position, starting_position + 1, starting_position + 2].map do |position|
-        board_as_array[position]
+        marks[position - 1]
       end
     end
 
-    attr_accessor :board_as_array
+    attr_accessor :marks
   end
 
   class Rules
