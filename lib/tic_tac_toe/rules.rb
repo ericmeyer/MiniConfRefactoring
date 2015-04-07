@@ -5,15 +5,11 @@ module TicTacToe
     end
 
     def rows
-      [row(0), row(1), row(2)]
+      3.times.map { |number| row(number) }
     end
 
     def columns
-      [
-        [marks[0], marks[3], marks[6]],
-        2,
-        3
-      ]
+      3.times.map { |number| column(number) }
     end
 
     def set(position, mark)
@@ -25,8 +21,19 @@ module TicTacToe
     def row(number)
       starting_position = number * 3 + 1
       [starting_position, starting_position + 1, starting_position + 2].map do |position|
-        marks[position - 1]
+        mark(position)
       end
+    end
+
+    def column(number)
+      starting_position = number + 1
+      [starting_position, starting_position + 3, starting_position + 6].map do |position|
+        mark(position)
+      end
+    end
+
+    def mark(position)
+      marks[position - 1]
     end
 
     attr_accessor :marks

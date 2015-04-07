@@ -2,19 +2,37 @@ require "tic_tac_toe/rules"
 
 describe TicTacToe::Board do
 
+  before(:each) do
+    @board = TicTacToe::Board.new
+  end
+
   describe 'The columns' do
     it "has three columns" do
-      board = TicTacToe::Board.new
-      expect(board.columns.size).to eq(3)
+      expect(@board.columns.size).to eq(3)
     end
 
     it "returns the first column" do
-      board = TicTacToe::Board.new
-      board.set(1, "A")
-      board.set(4, "B")
-      board.set(7, "C")
+      @board.set(1, "A")
+      @board.set(4, "B")
+      @board.set(7, "C")
 
-      expect(board.columns[0]).to eq(["A", "B", "C"])
+      expect(@board.columns[0]).to eq(["A", "B", "C"])
+    end
+
+    it "returns the second column" do
+      @board.set(2, "A")
+      @board.set(5, "B")
+      @board.set(8, "C")
+
+      expect(@board.columns[1]).to eq(["A", "B", "C"])
+    end
+
+    it "returns the third column" do
+      @board.set(3, "A")
+      @board.set(6, "B")
+      @board.set(9, "C")
+
+      expect(@board.columns[2]).to eq(["A", "B", "C"])
     end
   end
 
