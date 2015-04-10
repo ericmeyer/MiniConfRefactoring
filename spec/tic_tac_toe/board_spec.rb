@@ -1,4 +1,4 @@
-require "tic_tac_toe/rules"
+require "tic_tac_toe/board"
 
 describe TicTacToe::Board do
 
