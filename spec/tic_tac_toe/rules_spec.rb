@@ -56,6 +56,12 @@ describe TicTacToe::Rules do
                                            "O", "O", nil,
                                            "O", nil, nil]))
     end
+
+    it "has a winner in a diagonal" do
+      expect(@rules).to have_winner(board(["O", nil, "X",
+                                           "X", "O", nil,
+                                           "O", nil, "O"]))
+    end
   end
 
 end

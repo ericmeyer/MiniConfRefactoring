@@ -52,4 +52,26 @@ describe TicTacToe::Board do
     end
   end
 
+  describe 'The diagonals' do
+    it "has two diagonals" do
+      expect(@board.diagonals.size).to eq(2)
+    end
+
+    it "returns the first diagonal" do
+      @board.set(1, "A")
+      @board.set(5, "B")
+      @board.set(9, "C")
+
+      expect(@board.diagonals[0]).to eq(["A", "B", "C"])
+    end
+
+    it "returns the second diagonal" do
+      @board.set(3, "A")
+      @board.set(5, "B")
+      @board.set(7, "C")
+
+      expect(@board.diagonals[1]).to eq(["A", "B", "C"])
+    end
+  end
+
 end

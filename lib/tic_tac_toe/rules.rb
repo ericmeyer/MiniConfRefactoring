@@ -12,6 +12,10 @@ module TicTacToe
       3.times.map { |number| column(number) }
     end
 
+    def diagonals
+      [collect(1, 5, 9), collect(3, 5, 7)]
+    end
+
     def set(position, mark)
       marks[position - 1] = mark
     end
@@ -46,7 +50,7 @@ module TicTacToe
     end
 
     def candidate_combinations(board)
-      board.rows + board.columns
+      board.rows + board.columns + board.diagonals
     end
 
     private
